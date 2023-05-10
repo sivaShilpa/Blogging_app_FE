@@ -1,0 +1,17 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  }
+
+  .nav div {
+    margin: 20px;
+  }
+  
+  .header-right{
+    display: flex;
+    flex-direction: row;
+    justify-content:right;
+    align-items: right;
+  }
+  
