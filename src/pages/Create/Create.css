@@ -1,0 +1,11 @@
+.newBlogForm{
+    display: block;
+
+}
+.newBlogForm > div > input, button{
+    width: 80%;
+}
+.content{
+    
+    height: 600px;
+}
