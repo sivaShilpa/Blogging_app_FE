@@ -1,26 +1,23 @@
 import Header from "../../components/Header/Header";
 import { useState, useEffect } from 'react';
 import "./Blogs.css"
-import {Link} from 'react-router-dom'
+import {getBlogs} from '../../utilities/blogs-services'
 
 const Blogs= (props) => {
     const [isLoading, setIsLoading] = useState(true)
     const [ blogs, setBlogs ] = useState([]);
 
-    const BASE_URL = "http://localhost:4000/blogs";
-
-    const getBlogs = async () => {
-        try {
-            const response = await fetch(BASE_URL)
-            const allBlogs = await response.json()
-            setBlogs(allBlogs)
-			setIsLoading(false)
+    async function handleRequest(){
+        try{
+            const apiResponse = await getBlogs()
+            setBlogs(apiResponse)
+            setIsLoading(false)
         }catch(err){
             console.log(err)
         }
     }
 
-    useEffect(()=>{getBlogs()}, [])
+    useEffect(()=>{handleRequest()}, [isLoading])
 
     const loaded = () => {
         return blogs?.map((blog) => {

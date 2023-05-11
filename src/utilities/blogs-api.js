@@ -1,20 +1,53 @@
-const BASE_URL = `${process.env.REACT_APP_BASE_URL}/`
 
-export async function index() {
-    // Fetch uses an options object as a second arg to make requests
-    // other than basic GET requests, include data, headers, etc.
-    try {
-        const res = await fetch(BASE_URL, { method: 'GET' })
-          // Check if request was successful
-        if (res.ok) {
-            // res.json() - the returned JSON serialzier data from our people API 
-            return res.json()
-        }else {
-					throw new Error('Invalid Request')
-				}
-	
-    } catch (err) {
-				console.log(err) 
-				return err       
+
+const BASE_URL = "http://localhost:4000/blogs";
+    
+export async function index(){
+    try{
+        const response = await fetch(BASE_URL, {method: "GET"})
+        if (response.ok){
+            return response.json()
+        }else{
+            throw new Error("Invalid Request")
+        }
+    }catch(err){
+        console.log(err)
+        return err
+    }
+}
+
+export async function create(form){
+    
+    try{
+        const response = await fetch(BASE_URL, {
+            method: "POST",
+            headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(form)
+        })
+
+        if (response.ok) {
+            return response
+        }
+        else{
+            throw new Error(response.statusText)
+        }
+
+    }catch(err){
+        console.log(err)
+    }
+}
+
+export async function show(id){
+    try{
+        const url = `${BASE_URL}/${id}`
+        const response = await fetch(url, {method: "GET"})
+        console.log(response)
+        if (response.ok){
+            return response.json()
+        }else{
+            throw new Error("Invalid Request")
+        }
+    }catch(err){
+        console.log(err)
+        return err
     }
 }
