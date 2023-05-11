@@ -2,6 +2,7 @@ import Header from "../../components/Header/Header";
 import { useState, useEffect } from 'react';
 import "./Blogs.css"
 import {getBlogs} from '../../utilities/blogs-services'
+import { Link } from "react-router-dom";
 
 const Blogs= (props) => {
     const [isLoading, setIsLoading] = useState(true)
@@ -22,10 +23,12 @@ const Blogs= (props) => {
     const loaded = () => {
         return blogs?.map((blog) => {
           return (
-            <div key={blog._id}>
+            <div key={blog._id} className="blog-card">
+            <Link to={`/blogs/${blog._id}`}>
               <h1>{blog.title}</h1>
               <h3>{blog.content}</h3>
               <img className="blog-image" src={blog.image} />
+              </Link>
             </div>
           );
         });
