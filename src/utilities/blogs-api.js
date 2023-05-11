@@ -36,7 +36,7 @@ export async function create(form){
     }
 }
 
-export async function show(id){
+export async function detail(id){
     try{
         const url = `${BASE_URL}/${id}`
         const response = await fetch(url, {method: "GET"})
@@ -49,5 +49,43 @@ export async function show(id){
     }catch(err){
         console.log(err)
         return err
+    }
+}
+
+export async function destroy(id){
+    try{
+        const url = `${BASE_URL}/${id}`
+        const response = await fetch(url, {method: "DELETE"})
+        console.log(response)
+        if (response.ok){
+            return response.json()
+        }else{
+            throw new Error("Invalid Request")
+        }
+
+    }catch(err){
+        console.log(err)
+        return err
+    }
+}
+
+export async function update(id, form){
+    
+    try{
+        const url = `${BASE_URL}/${id}`
+        const response = await fetch(url, {
+            method: "POST",
+            headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(form)
+        })
+
+        if (response.ok) {
+            return response
+        }
+        else{
+            throw new Error(response.statusText)
+        }
+
+    }catch(err){
+        console.log(err)
     }
 }
