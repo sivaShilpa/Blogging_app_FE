@@ -1,6 +1,6 @@
 
 
-const BASE_URL = "http://localhost:4000/blogs";
+const BASE_URL = "http://myblogsblogging.netlify.app/blogs";
     
 export async function index(){
     try{
