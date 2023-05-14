@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+
 import { useState, useEffect } from "react"
 import { showBlog, deleteBlog, updateBlog } from "../../utilities/blogs-services"
 import { useParams, useNavigate } from "react-router-dom"
@@ -29,9 +29,7 @@ export default function Edit(){
 
     }
 
-    useEffect(()=>{
-        handleRequest()
-    },[isLoading])
+    useEffect(()=>{ handleRequest() },[isLoading])
 
     async function handleBlogDelete(){
         try{
@@ -57,8 +55,6 @@ export default function Edit(){
     const handleSubmit = async (e)=>{
         e.preventDefault()
         try{
-            console.log("id", id)
-            console.log("edit form", editForm)
             const updatedBlog = await updateBlog(id, editForm)
             console.log(updatedBlog)
             if(updatedBlog._id){
@@ -94,10 +90,7 @@ export default function Edit(){
           <h1>
             Loading...
             <span>
-              <img
-                className="spinner"
-                src="https://freesvg.org/img/1544764567.png"
-              />{" "}
+              <img className="spinner" src="https://freesvg.org/img/1544764567.png" alt=""/>{" "}
             </span>
           </h1>
         </div>

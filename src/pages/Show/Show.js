@@ -1,4 +1,4 @@
-import Header from "../../components/Header/Header";
+
 import { useState, useEffect } from "react";
 import {showBlog} from '../../utilities/blogs-services'
 import { useParams } from "react-router";
@@ -21,9 +21,7 @@ import { Link } from "react-router-dom";
 
   }
 
-  useEffect(()=>{
-    handleRequest()
-  },[])
+  useEffect(()=>{handleRequest()},[])
 
   const loaded=()=>{
     return(
@@ -42,10 +40,7 @@ import { Link } from "react-router-dom";
       <h1>
         Loading...
         <span>
-          <img
-            className="spinner"
-            src="https://freesvg.org/img/1544764567.png"
-          />{" "}
+          <img alt="" className="spinner" src="https://freesvg.org/img/1544764567.png"/>{" "}
         </span>
       </h1>
     </div>

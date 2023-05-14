@@ -1,4 +1,4 @@
-import Header from "../../components/Header/Header";
+
 import { useState, useEffect } from 'react';
 import "./Blogs.css"
 import {getBlogs} from '../../utilities/blogs-services'
@@ -27,7 +27,7 @@ const Blogs= (props) => {
             <Link to={`/blogs/${blog._id}`}>
               <h1>{blog.title}</h1>
               <h3>{blog.content}</h3>
-              <img className="blog-image" src={blog.image} />
+              <img className="blog-image" src={blog.image} alt=""/>
               </Link>
             </div>
           );
@@ -39,7 +39,7 @@ const Blogs= (props) => {
           <h1>
             Loading...
             <span>
-              <img
+              <img alt="" 
                 className="spinner"
                 src="https://freesvg.org/img/1544764567.png"
               />{" "}
