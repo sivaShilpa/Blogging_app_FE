@@ -74,12 +74,14 @@ export async function update(id, form){
     try{
         const url = `${BASE_URL}/${id}`
         const response = await fetch(url, {
-            method: "POST",
-            headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(form)
+            method: 'PUT',
+            headers: { "Content-Type": "application/json" }, 
+            body: JSON.stringify(form)
         })
 
         if (response.ok) {
-            return response
+            console.log(response)
+            return await response.json()
         }
         else{
             throw new Error(response.statusText)

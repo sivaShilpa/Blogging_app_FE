@@ -39,9 +39,9 @@ export async function getBlogs(){
             throw new Error(err)
         }
     }
-    export async function updateBlog(id){
+    export async function updateBlog(id, form){
         try {
-            const updatedBlog = await blogsAPI.update(id)
+            const updatedBlog = await blogsAPI.update(id, form)
             return updatedBlog
         }catch(err){
             console.log(err)
