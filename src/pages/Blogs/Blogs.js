@@ -51,7 +51,7 @@ const Blogs= (props) => {
     return (
         <section className="blogs-list">
            <div> {isLoading ?  loading() : loaded()}</div>
-            <div className="create"><a href="/myblogs/create">+</a></div>
+            <div className="create"><a href="/blogs/create">+</a></div>
         </section>
     )
   }
