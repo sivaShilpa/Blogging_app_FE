@@ -1,10 +1,11 @@
 
 
-const BASE_URL = "http://myblogsblogging.netlify.app/blogs";
+const BASE_URL = "https://blogging-app-be.herokuapp.com/blogs";
     
 export async function index(){
     try{
         const response = await fetch(BASE_URL, {method: "GET"})
+        console.log(response)
         if (response.ok){
             return response.json()
         }else{

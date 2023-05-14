@@ -21,9 +21,8 @@ import { Link } from "react-router-dom";
 
   }
 
-  useEffect(()=>{handleRequest()
-                  // eslint-disable-next-line
-                },[])
+  // eslint-disable-next-line
+  useEffect(()=>{handleRequest()},[])
 
   const loaded=()=>{
     return(
