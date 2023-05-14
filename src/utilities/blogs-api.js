@@ -1,5 +1,5 @@
 
-
+// const BASE_URL="http://localhost:4000/blogs";
 const BASE_URL = "https://blogging-app-be.herokuapp.com/blogs";
     
 export async function index(){
