@@ -21,7 +21,9 @@ import { Link } from "react-router-dom";
 
   }
 
-  useEffect(()=>{handleRequest()},[])
+  useEffect(()=>{handleRequest()
+                  // eslint-disable-next-line
+                },[])
 
   const loaded=()=>{
     return(
@@ -29,7 +31,7 @@ import { Link } from "react-router-dom";
         <h1>Show Page</h1>
         <h2>{blog.title}</h2>
         <p>{blog.content}</p>
-        <img src={blog.image || fallbackImage} alt={`image of ${blog.title}`}></img>
+        <img src={blog.image || fallbackImage} alt={blog.title}></img>
         <Link to={`/blogs/${blog._id}/edit`}><button>Edit Blog</button></Link>
       </div>
     )

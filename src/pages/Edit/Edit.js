@@ -6,7 +6,7 @@ import { useParams, useNavigate } from "react-router-dom"
 export default function Edit(){
     const {id} = useParams()
     const navigate = useNavigate()
-    const [blog, setBlog] = useState(null)
+    // const [blog, setBlog] = useState(null)
     const [isLoading, setIsLoading] = useState(true)
     const [editForm, setEditForm] = useState({
         title: "", 
@@ -17,7 +17,7 @@ export default function Edit(){
     async function handleRequest(){
         try{
             const editBlog = await showBlog(id)
-            setBlog(editBlog)
+            // setBlog(editBlog)
             const {title, content, image} = editBlog
             setEditForm({title, content, image})
             setIsLoading(false)
@@ -29,7 +29,9 @@ export default function Edit(){
 
     }
 
-    useEffect(()=>{ handleRequest() },[isLoading])
+    useEffect(()=>{ handleRequest() 
+                    // eslint-disable-next-line
+                },[isLoading])
 
     async function handleBlogDelete(){
         try{
