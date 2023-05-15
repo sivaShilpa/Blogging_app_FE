@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom"
 import Blog from "../../pages/Blogs/Blogs"
 import Show from "../../pages/Show/Show"
 import MyBlogs from "../../pages/MyBlogs/MyBlogs"
-import Create from "../../pages/Create/Create"
+import Create from "../../pages/Create"
 import Edit from "../../pages/Edit/Edit"
 
 const Main = () => {
